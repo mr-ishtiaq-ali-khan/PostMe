@@ -1,0 +1,28 @@
+@import "./mediaQueries";
+
+@mixin FlexCenterXY {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    margin: 0 auto;
+    width: 80vw;
+    
+    @include MediaQueryXS {
+        width: 90vw;
+    }
+    
+    @include MediaQueryMD {
+        width: 85vw;
+    }
+    
+    @include MediaQueryLG {
+        width: 85vw;
+    }
+    
+    @include MediaQueryXL {
+        width: 80vw;
+    }
+}
