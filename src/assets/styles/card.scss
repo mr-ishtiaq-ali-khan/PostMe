@@ -1,0 +1,48 @@
+@import './mediaQueries';
+@import './colors';
+
+.card {
+    height: 100%;
+    width: 100%;
+    border-radius: 1.3rem;
+    min-height: 15rem;
+    max-height: 100%;
+    display: inline-block;
+    color: $white;
+
+    
+
+    // DELETE THIS
+    margin-right: 10px;
+    width: 300px;
+    background-color: $vermilion;
+    // DELETE THIS
+
+    .cardTitle {
+        height: 3rem;
+        overflow: hidden;
+        border-bottom: 2px solid $white;
+        padding: .6rem 1rem;
+        position: relative;
+
+        button {
+            position: absolute;
+            top: 0;
+            right: 1rem;
+            border: 0;
+            background-color: transparent;
+            font-size: 1.8rem;
+            color: $white;
+            display: none;
+
+            &:hover {
+                color: $danger;
+                cursor: pointer;
+            }
+        }
+    }
+
+    &:hover .cardTitle button {
+        display: block;
+    }
+}
