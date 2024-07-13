@@ -13,6 +13,14 @@
     @include MediaQueryXS {
         width: 90vw;
     }
+   
+    // @include MediaQuerySM{
+    //     width: 95vw;
+    // }
+    
+    // @include MediaQuerySM {
+    //     width: 90vw;
+    // }
     
     @include MediaQueryMD {
         width: 85vw;
