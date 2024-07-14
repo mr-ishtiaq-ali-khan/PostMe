@@ -1,4 +1,7 @@
 @import "./mediaQueries";
+@import "./colors";
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
 
 @mixin FlexCenterXY {
     display: flex;
@@ -6,12 +9,21 @@
     align-items: center;
 }
 
+$fontFamily: 'Nunito', sans-serif;
+
+body {
+    background-color: $japaneseIndigo;
+}
+
 .container {
     margin: 0 auto;
-    width: 80vw;
+    width: 100vw;
+    padding: 4rem 20vw;
+    margin-top: 2rem;
+    font-family: $fontFamily;
     
     @include MediaQueryXS {
-        width: 90vw;
+        padding: 0 5vw;
     }
    
     // @include MediaQuerySM{
@@ -23,14 +35,32 @@
     // }
     
     @include MediaQueryMD {
-        width: 85vw;
+        padding: 0 7.5vw;
     }
     
     @include MediaQueryLG {
-        width: 85vw;
+        padding: 0 7.5vw;
     }
     
     @include MediaQueryXL {
-        width: 80vw;
+        padding: 0 10vw;
     }
+}
+
+@mixin TitleFontStyles {
+    color: $white;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+    text-shadow: 0.3px 0.3px 5px $pastelBrown;
+
+}
+
+@mixin ContentFontStyles {
+    color: $white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    text-shadow: 0.3px 0.3px 5px $pastelBrown;
+
 }
