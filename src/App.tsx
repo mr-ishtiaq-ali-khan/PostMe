@@ -1,17 +1,14 @@
-import Card from "./components/card/Card";
-import Modal from "./components/modal/Modal";
+import Home from "./pages/Home"
+import { Provider } from 'react-redux';
+import store from './redux/store/configureStore';
+import "./assets/styles/main.scss";
 
 function App() {
 
   return (
-    <>
-      <Card title={"sadf"} body={"asdfasdfas dfasdf asdf"} onClose={function (): void {
-        
-      } } />
-      <Modal title={"modal title"} body={"asdfasdfasd asdf asdf asdf asdf"} closeModal={function (): void {
-        
-      } } modal={true} setModal={() => {}} />
-    </>
+    <Provider store={store}>
+      <Home />
+    </Provider>
   )
 }
 
