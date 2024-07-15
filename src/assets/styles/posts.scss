@@ -48,6 +48,13 @@
         }
     }
 
+    .postsIntersectionObserver { 
+        margin-top: 20px;
+        text-align: center;
+        padding: 10px;
+        border-top: 1px solid $japaneseIndigo;
+    }
+
     @include MediaQueryXS {
         grid-template-columns: repeat(1, 1fr);
         // grid-auto-rows: 22rem;

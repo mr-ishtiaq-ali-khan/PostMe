@@ -18,33 +18,10 @@ body {
 .container {
     margin: 0 auto;
     width: 100vw;
-    padding: 4rem 20vw;
+    max-width: 100%;
+    padding: 0rem 4vw;
     margin-top: 2rem;
     font-family: $fontFamily;
-    
-    @include MediaQueryXS {
-        padding: 0 5vw;
-    }
-   
-    // @include MediaQuerySM{
-    //     width: 95vw;
-    // }
-    
-    // @include MediaQuerySM {
-    //     width: 90vw;
-    // }
-    
-    @include MediaQueryMD {
-        padding: 0 7.5vw;
-    }
-    
-    @include MediaQueryLG {
-        padding: 0 7.5vw;
-    }
-    
-    @include MediaQueryXL {
-        padding: 0 10vw;
-    }
 }
 
 @mixin TitleFontStyles {

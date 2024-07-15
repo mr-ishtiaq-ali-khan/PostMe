@@ -110,7 +110,7 @@ function Posts() {
             <AddNewPost {...addNewPostProps} />
 
             {/* Placeholder at the bottom for infinite scroll */}
-            {!destroyObserver && <div ref={bottomRef} style={{ marginTop: '20px', textAlign: 'center', padding: '10px', borderTop: '1px solid #ccc' }}>
+            {!destroyObserver && <div ref={bottomRef} className="postsIntersectionObserver">
                 {isBottomIntersecting && <span>Loading more posts...</span>}
             </div>}
         </div>

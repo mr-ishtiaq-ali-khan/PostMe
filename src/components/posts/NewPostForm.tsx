@@ -19,7 +19,7 @@ import TitleTextArea from '../TitleTextArea';
 const NewPostForm: React.FC<NewPostFormProps> = ({ onSubmit }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const maxTitleLength = 50; // Example: Maximum 50 characters for title
+  const maxTitleLength = 15; // Example: Maximum 15 characters for title
   const maxDescriptionLength = 100; // Example: Maximum 100 characters for description
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

@@ -29,7 +29,14 @@ function usePosts() {
     const { showToast } = useToast();
 
     useEffect(() => {
-        setIncrementalPostList(posts);
+        if(posts.length > 0) {
+            const _posts = [...posts];
+            const currentPostsLength = incrementalPostList.length;
+    
+            const limitedPosts = _posts.slice(0, currentPostsLength);
+            setIncrementalPostList(limitedPosts);
+        }
+
     }, [posts]);
 
     const bottomBoundaryRef = useRef<HTMLDivElement>(null);
@@ -65,8 +72,6 @@ function usePosts() {
         onIntersect: loadMorePosts,
         threshold: 1.0,
     });
-
-    console.log(incrementalPostList)
 
     return {
         posts: incrementalPostList,
