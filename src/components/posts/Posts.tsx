@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Card from "../card/Card";
 import axios from "axios";
 import { PostType } from "../../types/posts.type";
@@ -7,6 +7,8 @@ import { postsActions } from "../../redux/posts/slice";
 import { urls } from "../../constants/url";
 import "../../assets/styles/posts.scss";
 import usePosts from "../../hooks/usePosts";
+import AddNewPost from "./AddNewPost";
+import PostAddIcon from '@mui/icons-material/PostAdd';
 
 function Posts() {
     const {
@@ -16,6 +18,8 @@ function Posts() {
         destroyObserver,
         bottomRef
     } = usePosts();
+
+    const [openNewPost, setOpenNewPost] = useState(false);
 
     const dispatch = useDispatch();
 
@@ -42,10 +46,40 @@ function Posts() {
                         <Card key={post.uuid} title={post.title} body={post.description} onClose={() => deletePost(post.uuid)} />
                     ));
 
+    const toggleNewPostModal = () => {
+        setOpenNewPost(!openNewPost)
+    }
+
+    function handleSubmit(title: string, description: string): void {
+        axios.post(urls.posts.addPost, [{
+            title,
+            description
+        }])
+        .then((response) => {
+            console.log(response);
+            toggleNewPostModal();
+            fetchPosts();
+            
+        }).catch(err => {
+            console.log(err)
+        })
+    }
+
+    const addNewPostProps = {
+        openModal: openNewPost,
+        setOpenModal: setOpenNewPost,
+        closeModalCb: toggleNewPostModal,
+        handleSubmit: handleSubmit,
+    }
+    console.log(posts)
+
     return (
         <div className="postCard">
             {postsJsx}
             
+            <button className="newPostBtn" onClick={toggleNewPostModal}><PostAddIcon /> Post</button>
+            <AddNewPost {...addNewPostProps} />
+
             {/* Placeholder at the bottom for infinite scroll */}
             {!destroyObserver && <div ref={bottomRef} style={{ marginTop: '20px', textAlign: 'center', padding: '10px', borderTop: '1px solid #ccc' }}>
                 {isBottomIntersecting && <span>Loading more posts...</span>}
