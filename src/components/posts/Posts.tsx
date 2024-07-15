@@ -46,10 +46,6 @@ function Posts() {
         fetchPosts();
     }, []);
 
-    const postsJsx = posts.map((post: PostType) => (
-                        <Card key={post.uuid} title={post.title} body={post.description} onClose={() => deletePost(post.uuid)} />
-                    ));
-
     const toggleNewPostModal = () => {
         setOpenNewPost(!openNewPost)
     }
@@ -77,7 +73,10 @@ function Posts() {
         closeModalCb: toggleNewPostModal,
         handleSubmit: handleSubmit,
     }
-    console.log(posts)
+
+    const postsJsx = posts.map((post: PostType) => (
+        <Card key={post.uuid} title={post.title} body={post.description} onClose={() => deletePost(post.uuid)} />
+    ));
 
     return (
         <div className="postCard">

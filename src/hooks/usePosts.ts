@@ -21,14 +21,7 @@ function usePosts() {
     const { showToast } = useToast();
 
     useEffect(() => {
-    //     if(posts.length > 0) {
-    //         const _posts = [...posts];
-    //         const currentPostsLength = incrementalPostList.length;
-    
-            // const limitedPosts = _posts.slice(0, currentPostsLength);
-            setIncrementalPostList(posts);
-    //     }
-
+        setIncrementalPostList(posts);
     }, [posts]);
 
     const bottomBoundaryRef = useRef<HTMLDivElement>(null);
