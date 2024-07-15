@@ -5,6 +5,17 @@ import TitleInput from '../TitleInput';
 import TitleTextArea from '../TitleTextArea';
 
 
+/**
+ * The NewPostForm component is a form in a TypeScript React application that allows users to input a
+ * post title and description within specified character limits and submit the form.
+ * @param  - The code you provided is a React functional component called `NewPostForm` that represents
+ * a form for creating a new post. It takes a prop `onSubmit` which is a function to be called when the
+ * form is submitted.
+ * @returns The NewPostForm component is being returned. It is a form component that allows users to
+ * input a post title and description, with character limits set for both fields. When the form is
+ * submitted, the onSubmit function is called with the title and description values, and then the title
+ * and description states are reset to empty strings.
+ */
 const NewPostForm: React.FC<NewPostFormProps> = ({ onSubmit }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');

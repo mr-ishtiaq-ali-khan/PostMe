@@ -10,7 +10,15 @@ import { urls } from "../constants/url";
 import useInfiniteScroll from "./useInfiniteScroll";
 import useToast from "./useToast";
 
-
+/**
+ * The `usePosts` function in TypeScript manages posts, loads more posts on scroll, and handles post
+ * deletion with a toast notification.
+ * @returns The `usePosts` function returns an object with the following properties:
+ * - `posts`: An array of `PostType` representing the incremental list of posts.
+ * - `isBottomIntersecting`: A boolean value indicating whether the bottom boundary is intersecting.
+ * - `deletePost`: A function that takes a `uuid` string parameter and dispatches an action to delete
+ * the post with that `uuid
+ */
 function usePosts() {
     const [destroyObserver, setDestroyObserver] = useState<boolean>(false);
     const [incrementalPostList, setIncrementalPostList] = useState<PostType[]>([]);
