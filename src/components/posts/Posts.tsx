@@ -71,7 +71,6 @@ function Posts() {
             description
         }])
         .then((response) => {
-            console.log(response);
             showToast('success', 'Saved Post sucessfully!');
             toggleNewPostModal();
             fetchPosts();
