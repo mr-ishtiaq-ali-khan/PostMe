@@ -70,7 +70,7 @@ function Posts() {
             title,
             description
         }])
-        .then((response) => {
+        .then(() => {
             showToast('success', 'Saved Post sucessfully!');
             toggleNewPostModal();
             fetchPosts();
