@@ -10,6 +10,8 @@ import usePosts from "../../hooks/usePosts";
 import AddNewPost from "./AddNewPost";
 import PostAddIcon from '@mui/icons-material/PostAdd';
 import useToast from "../../hooks/useToast";
+import CardPlaceHolder from "../card/CardPlaceHolder";
+import NoDataAvailable from "../NoDataAvailable";
 
 function Posts() {
     const {
@@ -17,7 +19,9 @@ function Posts() {
         isBottomIntersecting,
         deletePost,
         destroyObserver,
-        bottomRef
+        bottomRef,
+        loadedAllPosts,
+        noData
     } = usePosts();
 
     const [openNewPost, setOpenNewPost] = useState(false);
@@ -103,17 +107,30 @@ function Posts() {
     ));
 
     return (
-        <div className="postCard">
-            {postsJsx}
-            
-            <button className="newPostBtn" onClick={toggleNewPostModal}><PostAddIcon /> Post</button>
-            <AddNewPost {...addNewPostProps} />
+        <>
+            { noData ? <NoDataAvailable /> :
+                <div className="postCard">
+                    
+                    {postsJsx}
+                    
+                    { !loadedAllPosts && <>
+                        <CardPlaceHolder />
+                        <CardPlaceHolder />
+                        <CardPlaceHolder />
+                        <CardPlaceHolder />
+                    </> }
 
-            {/* Placeholder at the bottom for infinite scroll */}
-            {!destroyObserver && <div ref={bottomRef} className="postsIntersectionObserver">
-                {isBottomIntersecting && <span>Loading more posts...</span>}
-            </div>}
-        </div>
+
+                    <button className="newPostBtn" onClick={toggleNewPostModal}><PostAddIcon /> Post</button>
+                    {/* Placeholder at the bottom for infinite scroll */}
+                    {!destroyObserver && <div ref={bottomRef} className="postsIntersectionObserver">
+                        {isBottomIntersecting && <span>loading</span>}
+                    </div>}
+                </div> 
+            }
+
+            <AddNewPost {...addNewPostProps} />
+        </>
     );
 }
 

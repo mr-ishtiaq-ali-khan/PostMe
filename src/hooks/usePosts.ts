@@ -79,6 +79,8 @@ function usePosts() {
         deletePost: handleDeletePost,
         destroyObserver,
         bottomRef: bottomBoundaryRef,
+        loadedAllPosts: posts.length === incrementalPostList.length,
+        noData: posts.length === 0,
     };
 }
 
