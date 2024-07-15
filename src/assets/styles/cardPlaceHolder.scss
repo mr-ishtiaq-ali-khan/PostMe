@@ -1,19 +1,13 @@
 @import './colors';
 
 .card {
-    height: 100%;
-    width: 100%;
-    border-radius: 0.5rem;
-    min-height: 15rem;
-    max-height: 100%;
-    display: inline-block;
-    font-size: 1.3rem;
-    z-index: -1;
+
     &.placeholder-card {
         background-color: #f2f2f2;
         box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
         overflow: hidden;
         position: relative;
+        z-index: -1;
 
         .cardTitle {
             height: 4rem;
