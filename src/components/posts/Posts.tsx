@@ -115,7 +115,6 @@ function Posts() {
                 
                 {postsJsx}
                 
-                { !loadedAllPosts && <CardPlaceHolder count={isMobile ? 2 : 4} /> }
 
                 <button className="newPostBtn" onClick={toggleNewPostModal}><PostAddIcon /> Post</button>
                 
@@ -123,6 +122,8 @@ function Posts() {
                 {!destroyObserver && <div ref={bottomRef} className="postsIntersectionObserver">
                     {isBottomIntersecting && <span>loading</span>}
                 </div>}
+                
+                { !loadedAllPosts && <CardPlaceHolder count={isMobile ? 2 : 4} /> }
             </div> 
             
 

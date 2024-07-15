@@ -4,6 +4,7 @@
 
 .postCard {
     display: grid;
+    min-height: 80vh;
 
     .card {
         width: 100%;
@@ -53,6 +54,7 @@
         text-align: center;
         padding: 10px;
         border-top: 1px solid $japaneseIndigo;
+        min-height: 200px;
     }
 
     @include MediaQueryXS {
@@ -60,6 +62,10 @@
         // grid-auto-rows: 22rem;
         grid-column-gap: 0;
         grid-row-gap: 3.5rem;
+
+        & .newPostBtn {
+            right: 2rem;
+        }
     }
     
     @include MediaQuerySM {
