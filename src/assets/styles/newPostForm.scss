@@ -1,0 +1,74 @@
+@import './main.scss';
+@import './colors';
+
+.post-form {
+    max-width: 100%;
+    padding: 1rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    &__input-group {
+      margin-bottom: 2rem;
+      width: 100%;
+  
+      label {
+        display: block;
+        margin-bottom: .6rem;
+        font-weight: bold;
+        font-family: $fontFamily;
+        font-size: 1.2rem;
+        color: $japaneseIndigo
+      }
+  
+      input[type="text"],
+      textarea {
+        width: 100%;
+        padding: 8px;
+        font-size: 1.2rem;
+        border: 1px solid $philippineSilver;
+        border-radius: 4px;
+        box-sizing: border-box;
+        color: $japaneseIndigo;
+      }
+  
+      textarea {
+        min-height: 10rem;
+      }
+  
+      p {
+        font-size: 1rem;
+        color: $pastelBrown;
+        margin-top: 4px;
+        font-family: $fontFamily;
+      }
+    }
+  
+    button[type="submit"] {
+      padding: .8rem 2rem;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: $japaneseIndigo;
+      background-color: $brightGray;
+      border: none;
+      border-radius: 3rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        background-color: $japaneseIndigo;
+        color: $brightGray;
+      }
+    }
+    
+    @include MediaQueryLG {
+        max-width: 80%;
+        padding: 1rem 2rem 2rem 2rem;
+    }
+    
+    @include MediaQueryXL {
+        max-width: 80%;
+        padding: 1rem 2rem 2rem 2rem;
+    }
+  }

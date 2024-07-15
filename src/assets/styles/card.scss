@@ -1,48 +1,57 @@
 @import './mediaQueries';
 @import './colors';
+@import './main.scss';
 
 .card {
     height: 100%;
     width: 100%;
-    border-radius: 1.3rem;
+    border-radius: .5rem;
     min-height: 15rem;
     max-height: 100%;
     display: inline-block;
-    color: $white;
-
-    
-
-    // DELETE THIS
-    margin-right: 10px;
-    width: 300px;
-    background-color: $vermilion;
-    // DELETE THIS
+    font-size: 1.3rem;    
 
     .cardTitle {
-        height: 3rem;
+        height: 4rem;
         overflow: hidden;
-        border-bottom: 2px solid $white;
-        padding: .6rem 1rem;
+        border-bottom: 1px solid $white;
+        padding: 1.3rem 1.73rem;
+        // margin: 0 1.7rem;
         position: relative;
+        text-transform: capitalize;
+        @include TitleFontStyles;
 
         button {
             position: absolute;
-            top: 0;
+            top: 12px;
             right: 1rem;
             border: 0;
             background-color: transparent;
-            font-size: 1.8rem;
-            color: $white;
             display: none;
-
-            &:hover {
-                color: $danger;
-                cursor: pointer;
+            
+            svg {
+                font-size: 2.3rem;
+                color: $white;
+            
+                &:hover {
+                    color: $danger;
+                    cursor: pointer;
+                }
             }
         }
     }
 
-    &:hover .cardTitle button {
-        display: block;
+    .cardBody {
+        @include ContentFontStyles;
+        padding: 1.3rem 1.7rem;
+        text-transform: capitalize;
+        line-height: 2rem;
+    }
+
+    &:hover {
+        box-shadow: 2px 3px 3px rgba(255,255,255,0.5);
+        .cardTitle button {
+            display: block;
+        }
     }
 }
