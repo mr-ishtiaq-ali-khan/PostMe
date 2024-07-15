@@ -1,0 +1,42 @@
+@import './main.scss';
+@import './colors';
+
+.navbar {
+    @include FlexCenterXY;
+    background-color: $brightGray;
+    padding: 10px 1.5rem;
+    justify-content: space-between;
+    font-family: $fontFamily;
+    font-weight: 700;
+    position: sticky;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
+
+    @include MediaQueryMD {
+        padding: 10px 2rem;
+    }
+    
+    @include MediaQueryLG {
+        padding: 10px 4rem;
+    }
+    
+    @include MediaQueryXL {
+        padding: 10px 4rem;
+    }
+
+    .navbarLogo {
+        span {
+            @include FlexCenterXY;
+            gap: 1rem;
+        }
+
+        font-size: 2rem;
+        svg {
+            font-size: 2.5rem;
+        }
+    }
+    
+  }
+  

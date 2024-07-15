@@ -8,6 +8,7 @@ import { PostType } from "../types/posts.type";
 import { featureConstants } from "../constants/featureConstants";
 import { urls } from "../constants/url";
 import useInfiniteScroll from "./useInfiniteScroll";
+import useToast from "./useToast";
 
 
 function usePosts() {
@@ -17,9 +18,17 @@ function usePosts() {
     const dispatch = useDispatch();
     const posts = useSelector((state: RootState) => selectPosts(state));
 
+    const { showToast } = useToast();
 
     useEffect(() => {
-        setIncrementalPostList(posts);
+    //     if(posts.length > 0) {
+    //         const _posts = [...posts];
+    //         const currentPostsLength = incrementalPostList.length;
+    
+            // const limitedPosts = _posts.slice(0, currentPostsLength);
+            setIncrementalPostList(posts);
+    //     }
+
     }, [posts]);
 
     const bottomBoundaryRef = useRef<HTMLDivElement>(null);
@@ -42,7 +51,9 @@ function usePosts() {
           })
         .then((response) => {
             console.log(response);
+            showToast('success', 'Deleted Post sucessfully!');
         }).catch(error => {
+            showToast('error', 'Error Deleting Post');
             console.log("Error Deleting Posts", error)
         })
     }
@@ -53,6 +64,8 @@ function usePosts() {
         onIntersect: loadMorePosts,
         threshold: 1.0,
     });
+
+    console.log(incrementalPostList)
 
     return {
         posts: incrementalPostList,

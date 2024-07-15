@@ -9,6 +9,7 @@ import "../../assets/styles/posts.scss";
 import usePosts from "../../hooks/usePosts";
 import AddNewPost from "./AddNewPost";
 import PostAddIcon from '@mui/icons-material/PostAdd';
+import useToast from "../../hooks/useToast";
 
 function Posts() {
     const {
@@ -22,6 +23,7 @@ function Posts() {
     const [openNewPost, setOpenNewPost] = useState(false);
 
     const dispatch = useDispatch();
+    const { showToast } = useToast();
 
     function fetchPosts() {
         axios
@@ -32,8 +34,10 @@ function Posts() {
         }).then(response => {
             if(response.data) {
                 dispatch(postsActions.addPost(JSON.parse(response.data)));
+                showToast('success', 'Fetched Posts sucessfully!');
             }
           }).catch(error => {
+            showToast('error', 'Unable to Fetch Post');
             console.log('Error fetching Posts:', error)
           });
     }
@@ -57,11 +61,13 @@ function Posts() {
         }])
         .then((response) => {
             console.log(response);
+            showToast('success', 'Saved Post sucessfully!');
             toggleNewPostModal();
             fetchPosts();
             
         }).catch(err => {
             console.log(err)
+            showToast('error', 'Error Saving Post!');
         })
     }
 
