@@ -12,11 +12,11 @@
     font-size: 1.3rem;    
 
     .cardTitle {
-        height: 4rem;
+        min-height: 4rem;
+        line-height: 1.8rem;
         overflow: hidden;
         border-bottom: 1px solid $white;
         padding: 1.3rem 1.73rem;
-        // margin: 0 1.7rem;
         position: relative;
         text-transform: capitalize;
         @include TitleFontStyles;
